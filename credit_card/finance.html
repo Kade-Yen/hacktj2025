@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Bank - Secure Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">💳 Quantum Bank</div>
+  </header>
+
+  <div class="login-container">
+    <form class="login-form">
+      <h2>Secure Login</h2>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <label for="pin">4-Digit PIN</label>
+        <input type="password" id="pin" name="pin" placeholder="Enter your 4-digit PIN" required maxlength="4" pattern="\d{4}">
+      </div>
+      <button type="submit">Login</button>
+      <p class="forgot-pin"><a href="#">Forgot PIN?</a></p>
+    </form>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Quantum Bank. All rights reserved.
+  </footer>
+
+  <script>
+    const encryptionMap = {
+      "0": "QXZ", "1": "JKP", "2": "MNO", "3": "BVZ",
+      "4": "WEX", "5": "TYA", "6": "PQS", "7": "DFU",
+      "8": "HJL", "9": "ZXC"
+    };
+
+    function encryptPIN(pin) {
+      return pin.split("").map(num => encryptionMap[num]).join("");
+    }
+
+    document.querySelector('.login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById("username").value;
+      var pin = document.getElementById("pin").value;
+
+      var encryptedPin = encryptPIN(pin);
+      var fileContent = `Username: ${username}\nEncrypted PIN: ${encryptedPin}`;
+
+      var blob = new Blob([fileContent], { type: 'text/plain' });
+      var link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'credentials_encrypted.txt';
+      link.click();
+
+      console.log(`Original PIN: ${pin}`);
+      console.log(`Encrypted PIN: ${encryptedPin}`);
+
+      // Redirect to the thank you page after processing
+      window.location.href = 'thankyou.html';
+    });
+  </script>
+</body>
+</html>

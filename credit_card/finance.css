@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: #004080;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 28px;
+}
+
+/* Login Container */
+.login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 320px;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Fields */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Button */
+button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #002b55;
+}
+
+/* Forgot PIN */
+.forgot-pin {
+  margin-top: 10px;
+}
+
+.forgot-pin a {
+  color: #004080;
+  text-decoration: none;
+}
+
+.forgot-pin a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  color: gray;
+}
