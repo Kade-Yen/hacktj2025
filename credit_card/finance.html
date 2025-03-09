@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class = "header">
-    <h1>Quantum Credit</h1> 
-    </header> 
+  <header class="header">
+    <h1>Quantum Credit</h1>
+  </header>
   <div class="login-container">
     <form class="login-form">
       <h2>Login</h2>
@@ -19,10 +17,31 @@
       </div>
       <div class="input-group">
         <label for="pin">4-Digit PIN</label>
-        <input type="pin" id="pin" name="pin" placeholder="Enter your 4-Digit PIN" required maxlength = "4" pattern = "\d{4}">
-    </div>
+        <input type="text" id="pin" name="pin" placeholder="Enter your 4-Digit PIN" required maxlength="4" pattern="\d{4}">
+      </div>
       <button type="submit">Login</button>
     </form>
   </div>
+
+  <script>
+    document.querySelector('.login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the value of the PIN
+      var pin = document.getElementById("pin").value;
+
+      // Create a Blob containing the PIN text
+      var blob = new Blob([pin], { type: 'text/plain' });
+      var link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'pin.txt'; // File to be downloaded
+
+      // Trigger download
+      link.click();
+
+      // Redirect to thank you page after download
+      window.location.href = 'thankyou.html'; // Redirects to a new page
+    });
+  </script>
 </body>
 </html>
